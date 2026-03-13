@@ -1,0 +1,281 @@
+/* ── Header bar ──────────────────────────────────────────── */
+.header {
+  height: 64px;
+  background: #ffffff;
+  border-bottom: 1px solid #e8edf3;
+  display: flex;
+  align-items: center;
+  padding: 0 20px 0 16px;
+  gap: 14px;
+  flex-shrink: 0;      /* stays at top of .main flex column */
+  z-index: 50;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+/* ── Sidebar toggle button ───────────────────────────────── */
+.toggleBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #64748b;
+  border-radius: 8px;
+  transition: background 0.15s, color 0.15s;
+  line-height: 0;
+}
+
+.toggleBtn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+/* ── Page title ──────────────────────────────────────────── */
+.titleArea {
+  flex: 1;
+  min-width: 0;
+}
+
+.pageTitleText {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Right-side action cluster (bell + user) ─────────────── */
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+/* ── User area + dropdown wrapper ────────────────────────── */
+.userArea {
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* ── User button ─────────────────────────────────────────── */
+.userBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: 1.5px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 5px 10px 5px 5px;
+  transition: background 0.15s, border-color 0.15s;
+  font-family: inherit;
+}
+
+.userBtn:hover {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.userBtnOpen {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.userName {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.userRole {
+  font-size: 11px;
+  color: #94a3b8;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.chevron {
+  display: flex;
+  align-items: center;
+  color: #94a3b8;
+  transition: transform 0.2s;
+  line-height: 0;
+  flex-shrink: 0;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+/* ── Dropdown ────────────────────────────────────────────── */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 210px;
+  background: #ffffff;
+  border: 1px solid #e8edf3;
+  border-radius: 13px;
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.04),
+    0 12px 32px rgba(0, 0, 0, 0.1);
+  z-index: 200;
+  overflow: hidden;
+  animation: dropIn 0.16s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes dropIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ── Dropdown header (user info) ─────────────────────────── */
+.dropdownHeader {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 14px 14px 12px;
+}
+
+.dropdownAvatar {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdownHeaderText {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdownName {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.25;
+}
+
+.dropdownEmail {
+  font-size: 12px;
+  color: #94a3b8;
+  line-height: 1.4;
+}
+
+/* ── Divider ─────────────────────────────────────────────── */
+.dropdownDivider {
+  height: 1px;
+  background: #f1f5f9;
+  margin: 2px 0;
+}
+
+/* ── Dropdown items ──────────────────────────────────────── */
+.dropdownItem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #374151;
+  text-align: left;
+  transition: background 0.12s, color 0.12s;
+}
+
+.dropdownItem:hover {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.dropdownItem svg {
+  flex-shrink: 0;
+  color: #94a3b8;
+}
+
+.dropdownItem:hover svg {
+  color: #4f46e5;
+}
+
+.dropdownItemDanger {
+  color: #ef4444;
+}
+
+.dropdownItemDanger:hover {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.dropdownItemDanger svg {
+  color: #fca5a5;
+}
+
+.dropdownItemDanger:hover svg {
+  color: #ef4444;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 560px) {
+  .userInfo {
+    display: none;
+  }
+
+  .chevron {
+    display: none;
+  }
+
+  .userBtn {
+    padding: 4px;
+    border-radius: 50%;
+  }
+
+  .dropdown {
+    right: -8px;
+    min-width: 190px;
+  }
+}
